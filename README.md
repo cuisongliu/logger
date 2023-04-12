@@ -5,7 +5,6 @@ convenient log package
 ```go
     import  "github.com/cuisongliu/logger"
 
-    // 配置logger，如果不配置时默认为控制台输出，等级为DEBG
     logger.Cfg(debugMod bool, showPath bool)
     // 配置说明见下文
 
@@ -41,10 +40,12 @@ logger当前支持控制台、文件、网络3种方式适配器输出，可以�
 
 通过调用logger.SetLogger(config string)方法设置参数，config支持json配置，也支持指定内容为json配置的文件路径，例如：
 ```go
-    // 通过配置参数直接配置
-    logger.SetLogger(`{"Console": {"level": "DEBG"}}`)
-    // 通过配置文件配置
-    logger.SetLogger("/home/log.json")
+    // debugMod: 是否开启debug模式，开启后会输出调用日志的文件名和行号
+    // showPath: 是否显示调用日志的文件名和行号
+    logger.Cfg(debugMod bool, showPath bool)
+    // 配置说明见下文
+	// logDir 为日志文件目录，name为日志文件名，showPath为是否显示调用日志的文件名和行号
+    logger.CfgAndFile(debugMod bool, logDir, name string, showPath bool)
 
 ```
 
