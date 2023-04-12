@@ -3,10 +3,10 @@ convenient log package
 
 # 1. 使用说明
 ```go
-    import  "github.com/fanux/sealos/pkg/logger"
+    import  "github.com/cuisongliu/logger"
 
     // 配置logger，如果不配置时默认为控制台输出，等级为DEBG
-    logger.SetLogger(`{"Console": {"level": "DEBG"}`)
+    logger.Cfg(debugMod bool, showPath bool)
     // 配置说明见下文
 
     // 设置完成后，即可在控制台和日志文件app.log中看到如下输出
@@ -19,9 +19,6 @@ convenient log package
     logger.Alert("this is Alert")
     logger.Emer("this is Emergency")
 ```
-输出结果：
-
-![](images/output1.png)
 
 # 2. 日志等级
 
